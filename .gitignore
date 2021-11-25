@@ -1,0 +1,6 @@
+# Build files
+build/
+cmake-build-debug/
+
+# Notes 'n stuff
+extra/
