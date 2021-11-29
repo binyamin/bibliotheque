@@ -4,7 +4,15 @@
 using namespace std;
 
 Book::Book() {
-    this->id = time(nullptr);
+    this->_id = time(nullptr);
+}
+
+Book::Book(long id) {
+    this->_id = id;
+}
+
+long Book::id() const {
+    return this->_id;
 }
 
 Book::Book(
@@ -13,6 +21,8 @@ Book::Book(
     int publishedYear,
     Subject subject
 ) {
+    this->_id = time(nullptr);
+    
     this->title = title;
     this->author = author;
     this->publishedYear = publishedYear;
@@ -25,7 +35,7 @@ void Book::save() const {
 
     pugi::xml_node bookNode = doc.append_child("book");
 
-    bookNode.append_attribute("id").set_value(this->id);
+    bookNode.append_attribute("id").set_value(this->_id);
     bookNode.append_child("title")
         .append_child(pugi::node_pcdata)
         .set_value(this->title.c_str());

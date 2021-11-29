@@ -25,9 +25,12 @@ CPMAddPackage("gh:zeux/pugixml#9e382f98")
 
 # ---- Create executable ----
 add_executable(bibliotheque
-        src/book.h
-        src/book.cpp
-        src/utils.hpp
+        lib/library.h
+        lib/library.cpp
+        lib/book.h
+        lib/book.cpp
+        lib/utils.h
+        lib/utils.cpp
         main.cpp)
 
 target_link_libraries(bibliotheque pugixml)

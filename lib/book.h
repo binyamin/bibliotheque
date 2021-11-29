@@ -15,7 +15,7 @@
     };
 
     class Book {
-        protected: long id;
+        long _id;
 
         public:
             std::string title;
@@ -24,6 +24,7 @@
             Subject subject;
 
             Book();
+            Book(long id);
             Book(
                 std::string title,
                 std::string author,
@@ -31,6 +32,8 @@
                 Subject subject
             );
             void save() const;
-            Book load();
+            long id() const;
     };
+    
+    
 #endif
