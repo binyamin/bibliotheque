@@ -48,9 +48,16 @@ int main(int _argc, char const *argv[]) {
         
         return 0;
     } else if (cmd == "list" or cmd == "ls") {
-        cout << "Listing all books..." << endl;
+        vector<Book> v;
+        if(argv[2] and utils::validate_subject(argv[2])) {
+            cout << "Listing books of subject " << argv[2] << "..." << endl;
+            
+            v = library::some(argv[2]);
+        } else {
+            cout << "Listing all books..." << endl;
 
-        vector<Book> v = library::list();
+            v = library::list();
+        }
         for (auto &&b : v) {
             cout << endl;
             cout << "Book #" << b.id() << endl;
@@ -59,7 +66,6 @@ int main(int _argc, char const *argv[]) {
             cout << "  Pub. Year:\t" << b.publishedYear << endl;
             cout << "\tSubject: " << b.subject << endl;
         }
-        
         return 0;
     } else if (cmd == "test") {
         cout << "Test not defined" << endl;
