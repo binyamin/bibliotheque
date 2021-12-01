@@ -11,7 +11,7 @@
         std::vector<Book> list();
 
         // List all book from a single subject
-        std::vector<Book> some(Subject subject);
+        std::vector<Book> some(std::string subject);
     } // namespace library
     
 #endif

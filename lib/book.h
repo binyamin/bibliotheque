@@ -5,15 +5,6 @@
 
     #define XML_PATH "library.xml"
 
-    enum Subject {
-        None,
-        Fiction,
-        Fantasy,
-        History,
-        Biography,
-        General
-    };
-
     class Book {
         long _id;
 
@@ -21,7 +12,7 @@
             std::string title;
             std::string author;
             int publishedYear;
-            Subject subject;
+            std::string subject;
 
             Book();
             Book(long id);
@@ -29,7 +20,7 @@
                 std::string title,
                 std::string author,
                 int publishedYear,
-                Subject subject
+                std::string subject
             );
             void save() const;
             long id() const;

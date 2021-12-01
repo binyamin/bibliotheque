@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstring>
+#include <vector>
+#include <algorithm>
 
 #include "book.h"
 
@@ -12,24 +14,17 @@ namespace utils {
         return (string) t;
     }
 
-    Subject get_subject(string temp_subject) {
-        // TODO:
-        // This next block might be easier to read, if I could convert a
-        // `Subject` enum value to its respective key/name with one function
-        if(strcasecmp(temp_subject.c_str(), "History") == 0) {
-            return Subject::History;
-        } else if (strcasecmp(temp_subject.c_str(), "FantasY") == 0) {
-            return Subject::Fantasy;
-        } else if (strcasecmp(temp_subject.c_str(), "ficTion") == 0) {
-            return Subject::Fiction;
-        } else if (strcasecmp(temp_subject.c_str(), "biography") == 0) {
-            return Subject::Biography;
-        } else if (strcasecmp(temp_subject.c_str(), "general") == 0) {
-            return Subject::General;
-        } else {
-            // FEAT: Instead of aborting, loop until we get a valid response
-            cerr << "Error: That's not an option! Try again." << endl;
-            abort();
-        }
+    bool validate_subject(string temp_subject) {
+        vector<string> subjects {
+            "history",
+            "fantasy",
+            "general",
+            "fiction",
+            "biography"
+        };
+
+        return std::any_of(subjects.begin(), subjects.end(), [&temp_subject](string s) {
+            return strcasecmp(s.c_str(), temp_subject.c_str()) == 0;
+        });
     }
 } // namespace utils

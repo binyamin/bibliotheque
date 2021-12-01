@@ -34,7 +34,13 @@ int main(int _argc, char const *argv[]) {
         cout << "Subject: ";
         string t;
         cin >> t;
-        b.subject = utils::get_subject(t);
+        if(utils::validate_subject(t)) {
+            b.subject = t;
+        } else {
+            // FEAT: Instead of aborting, loop until we get a valid response
+            cerr << "Error: That's not an option! Try again." << endl;
+            return 1;
+        }
         
         b.save();
 
@@ -51,7 +57,7 @@ int main(int _argc, char const *argv[]) {
             cout << "  Title:\t" << b.title << endl;
             cout << "  Author:\t" << b.author << endl;
             cout << "  Pub. Year:\t" << b.publishedYear << endl;
-            // cout << "\tSubject: " << b.subject << endl;
+            cout << "\tSubject: " << b.subject << endl;
         }
         
         return 0;

@@ -1,3 +1,4 @@
+#include <vector>
 #include <pugixml.hpp>
 #include "book.h"
 
@@ -19,7 +20,7 @@ Book::Book(
     std::string title,
     std::string author,
     int publishedYear,
-    Subject subject
+    string subject
 ) {
     this->_id = time(nullptr);
     
@@ -47,7 +48,7 @@ void Book::save() const {
         .set_value(to_string(this->publishedYear).c_str());
     bookNode.append_child("subject")
         .append_child(pugi::node_pcdata)
-        .set_value(to_string(this->subject).c_str());
+        .set_value(this->subject.c_str());
         
     doc.save_file(XML_PATH);
 }
