@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <cstring>
 
-#include <pugixml.hpp>
+#include <vendor/pugixml.hpp>
 
 #include "library.h"
 #include "utils.h"

@@ -8,5 +8,5 @@ test: build
     just run test
 
 build:
-    cmake -S. -Bbin
-    cmake --build bin
+    mkdir bin
+    c++ -g main.cpp vendor/*.cpp vendor/*.hpp lib/*.cpp -I. -o bin/app.exe
