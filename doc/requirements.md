@@ -13,6 +13,8 @@ idea: library program ("Library Management System")
 1. Collect book data from cli, and save it to a file
 2. List all books
 3. List books by subject (sorted)
+4. overdue fines?
+5. help text
 
 ## Major Topics to cover
 1. C++ Structured Techniques
