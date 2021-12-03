@@ -1,7 +1,7 @@
 # Bibliotheque
 #
 # Build and run by calling:
-# cmake -S. -Bbuild && cmake --build build && ./build/bibliotheque
+# cmake -S. -Bbin && cmake --build bin && ./bin/app
 
 cmake_minimum_required(VERSION 3.20)
 
@@ -24,7 +24,7 @@ include(${CPM_DOWNLOAD_LOCATION})
 CPMAddPackage("gh:zeux/pugixml#9e382f98")
 
 # ---- Create executable ----
-add_executable(bibliotheque
+add_executable(app
         lib/library.h
         lib/library.cpp
         lib/book.h
@@ -33,5 +33,5 @@ add_executable(bibliotheque
         lib/utils.cpp
         main.cpp)
 
-target_link_libraries(bibliotheque pugixml)
-include_directories(src)
+target_link_libraries(app pugixml)
+include_directories(lib)

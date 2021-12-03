@@ -1,5 +1,5 @@
 # Build files
-build/
+bin/
 cmake-build-debug/
 
 # Notes 'n stuff
