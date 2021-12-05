@@ -80,7 +80,7 @@ int main(int argc, char const *argv[]) {
             cout << "  Title:\t" << b.title << endl;
             cout << "  Author:\t" << b.author << endl;
             cout << "  Pub. Year:\t" << b.publishedYear << endl;
-            cout << "\tSubject: " << b.subject << endl;
+            cout << "  Subject:\t" << b.subject << endl;
         }
         return 0;
     } else if (cmd == "test") {
