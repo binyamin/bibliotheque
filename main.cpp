@@ -14,9 +14,25 @@
     
 using namespace std;
 
-int main(int _argc, char const *argv[]) {
+void printHelp() {
+    cout << "Bibliotheque" << endl;
+    cout << "A Library Management System (LMS)" << endl << endl;
+    cout << "Commands:" << endl;
+    cout << "  add\t\ta book to the catalog" << endl;
+    cout << "  ls, list\tlist all books in the catalog" << endl;
+    cout << "  search\tsearch by author or title" << endl;
+    cout << "  help\t\tshow this message" << endl;
+}
 
-    string cmd = argv[1];
+int main(int argc, char const *argv[]) {
+    string cmd;
+
+    if(argv[1]) {
+        cmd = argv[1];
+    } else {
+        printHelp();
+        return 0;
+    }
 
     if(cmd == "add") {
         Book b = Book {};
@@ -69,6 +85,9 @@ int main(int _argc, char const *argv[]) {
         return 0;
     } else if (cmd == "test") {
         cout << "Test not defined" << endl;
+        return 0;
+    } else if (cmd == "help") {
+        printHelp();
         return 0;
     }
 
