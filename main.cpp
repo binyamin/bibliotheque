@@ -24,6 +24,14 @@ void printHelp() {
     cout << "  help\t\tshow this message" << endl;
 }
 
+void printBook(Book b) {
+    cout << "Book #" << b.id() << endl;
+    cout << "  Title:\t" << b.title << endl;
+    cout << "  Author:\t" << b.author << endl;
+    cout << "  Pub. Year:\t" << b.publishedYear << endl;
+    cout << "  Subject:\t" << b.subject << endl;
+}
+
 int main(int argc, char const *argv[]) {
     string cmd;
 
@@ -76,11 +84,7 @@ int main(int argc, char const *argv[]) {
         }
         for (auto &&b : v) {
             cout << endl;
-            cout << "Book #" << b.id() << endl;
-            cout << "  Title:\t" << b.title << endl;
-            cout << "  Author:\t" << b.author << endl;
-            cout << "  Pub. Year:\t" << b.publishedYear << endl;
-            cout << "  Subject:\t" << b.subject << endl;
+            printBook(b);
         }
         return 0;
     } else if (cmd == "test") {
