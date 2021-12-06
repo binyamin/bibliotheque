@@ -1,6 +1,8 @@
+library.xml
+
 # Build files
-bin/
-cmake-build-debug/
+app
+app.exe
 
 # Notes 'n stuff
 extra/
