@@ -17,7 +17,7 @@ vector<Book> get_as_vec() {
     doc.load_file(XML_PATH);
 
     for (auto &&c : doc.children()) {
-        Book b = Book(c.attribute("id").as_int());
+        Book b = Book(c.attribute("id").as_llong());
         b.title = c.child("title").child_value();
         b.author = c.child("author").child_value();
         b.publishedYear = atoi(c.child("year").child_value());

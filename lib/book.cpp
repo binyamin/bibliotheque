@@ -9,11 +9,11 @@ Book::Book() {
     this->_id = time(nullptr);
 }
 
-Book::Book(long id) {
+Book::Book(book_id id) {
     this->_id = id;
 }
 
-long Book::id() const {
+book_id Book::id() const {
     return this->_id;
 }
 
