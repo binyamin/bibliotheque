@@ -20,7 +20,8 @@ namespace utils {
             "fantasy",
             "general",
             "fiction",
-            "biography"
+            "biography",
+            "science"
         };
 
         return std::any_of(subjects.begin(), subjects.end(), [&temp_subject](string s) {
