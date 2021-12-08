@@ -1,0 +1,28 @@
+name: C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build on ${{matrix.os}}
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ windows-latest, ubuntu-latest ]
+    steps:
+    - uses: extractions/setup-just@v1
+    - uses: actions/checkout@v2
+    - name: Build project
+      run: just build
+    - name: Test artifact
+      run: |
+        just run help
+        just run list
+    - uses: actions/upload-artifact@v2
+      with:
+        name: app
+        path: ./app{.exe,}
