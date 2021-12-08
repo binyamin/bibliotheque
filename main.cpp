@@ -73,7 +73,11 @@ int main(int argc, char const *argv[]) {
         return 0;
     } else if (cmd == "list" or cmd == "ls") {
         vector<Book> v;
-        if(argv[2] and utils::validate_subject(argv[2])) {
+        if(argv[2]) {
+            if(not utils::validate_subject(argv[2])){
+                cerr << "Invalid subject" << endl;
+                return 127;
+            }
             cout << "Listing books of subject " << argv[2] << "..." << endl;
             
             v = library::some(argv[2]);
