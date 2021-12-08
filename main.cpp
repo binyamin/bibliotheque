@@ -20,7 +20,8 @@ void printHelp() {
     cout << "Commands:" << endl;
     cout << "  add\t\ta book to the catalog" << endl;
     cout << "  ls, list\tlist all books in the catalog" << endl;
-    cout << "  search\tsearch by author or title" << endl;
+    cout << "  ls <subject>\tlist all books in the catalog matching a subject" << endl;
+    // cout << "  search\tsearch by author or title" << endl;
     cout << "  help\t\tshow this message" << endl;
 }
 
