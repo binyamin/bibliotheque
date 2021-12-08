@@ -8,6 +8,16 @@
 using namespace std;
 
 namespace utils {
+    bool string_compare(string a, string b) {
+        #ifdef _WIN32
+            // windows code
+            return _stricmp(a.c_str(), b.c_str()) == 0;
+        #else
+            // linux code (posix)
+            return strcasecmp(a.c_str(), b.c_str()) == 0;
+        #endif
+    }
+    
     string get_line_as_str() {
         char t[64];
         cin.getline(t, 64);
@@ -25,7 +35,7 @@ namespace utils {
         };
 
         return std::any_of(subjects.begin(), subjects.end(), [&temp_subject](string s) {
-            return strcasecmp(s.c_str(), temp_subject.c_str()) == 0;
+            return string_compare(s, temp_subject);
         });
     }
 } // namespace utils

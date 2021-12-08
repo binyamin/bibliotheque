@@ -37,7 +37,7 @@ vector<Book> library::some(string subject) {
     vector<Book> r;
 
     for (auto &&b : v) {
-        if (strcasecmp(b.subject.c_str(), subject.c_str()) == 0) {
+        if (utils::string_compare(b.subject, subject)) {
             r.push_back(b);
         }
     }
